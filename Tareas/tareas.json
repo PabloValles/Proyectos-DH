@@ -1,18 +1,1 @@
-[
-    {
-        "titulo": "Ir al banco",
-        "estado": "pendiente"
-    },
-    {
-        "titulo": "Comprar el almuerzo",
-        "estado": "pendiente"
-    },
-    {
-        "titulo": "Realizar ejercicio modulo 5",
-        "estado": "terminada"
-    },
-    {
-        "titulo": "Mirar serie en Netflix",
-        "estado": "pendiente"
-    }
-]
+[{"titulo":"Ir al banco","estado":"pendiente"},{"titulo":"Comprar el almuerzo","estado":"pendiente"},{"titulo":"Realizar ejercicio modulo 5","estado":"terminada"},{"titulo":"Mirar serie en Netflix","estado":"pendiente"},{"titulo":"Ir al Baño","estado":"pendiente"},{"titulo":"Estudiar node","estado":"pendiente"}]

@@ -6,6 +6,14 @@ switch (comando) {
   case "listar":
     tareas.listar();
     break;
+  case "guardar":
+    let tarea = {
+      titulo: process.argv[3],
+      estado: "pendiente",
+    };
+    tareas.guardar(tarea);
+    tareas.listar();
+    break;
   case undefined:
     console.log("Atención - Tienes que pasar una acción.");
     break;
