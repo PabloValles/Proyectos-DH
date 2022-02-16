@@ -4,7 +4,7 @@ let comando = process.argv[2];
 
 switch (comando) {
   case "listar":
-    console.log(tareas(comando));
+    tareas.listar();
     break;
   case undefined:
     console.log("Atención - Tienes que pasar una acción.");
