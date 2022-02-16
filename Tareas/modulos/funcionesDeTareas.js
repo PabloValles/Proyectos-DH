@@ -37,6 +37,32 @@ let moduloTareas = {
     let tareas = this.leerJSON();
     return tareas.filter((tarea) => tarea.estado === estado);
   },
+  actualizar(titulo, estado) {
+    let tareas = this.leerJSON();
+
+    // Recorro el array de tareas
+    tareas.forEach((tarea) => {
+      if (tarea.titulo === titulo) {
+        //actualizo la primer tarea que coincida con el filtro
+        tarea.estado = estado;
+      }
+    });
+
+    // Acutalizo el archivo JSON
+    this.escribirJSON(tareas);
+  },
+  eliminar(nombreTarea) {
+    let tareas = this.leerJSON();
+
+    tareas.forEach((tarea, i, tareas) => {
+      if (tarea.titulo === nombreTarea) {
+        tareas.splice(i, 1);
+      }
+    });
+
+    // Acutalizo el archivo JSON
+    this.escribirJSON(tareas);
+  },
 };
 
 module.exports = moduloTareas;
