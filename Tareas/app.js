@@ -1,3 +1,4 @@
+const { listar } = require("./modulos/funcionesDeTareas");
 let tareas = require("./modulos/funcionesDeTareas");
 
 let comando = process.argv[2];
@@ -13,6 +14,11 @@ switch (comando) {
     };
     tareas.guardar(tarea);
     tareas.listar();
+    break;
+  case "filtrar":
+    let estado = process.argv[3];
+    let tareasFiltradas = tareas.filtrarEstado(estado);
+    tareas.listar(tareasFiltradas);
     break;
   case undefined:
     console.log("Atención - Tienes que pasar una acción.");
