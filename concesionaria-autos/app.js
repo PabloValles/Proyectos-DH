@@ -41,6 +41,11 @@ const concesionaria = {
 
     return lista;
   },
+  totalDeVentas() {
+    let ventas = this.listaDeVentas();
+    let total = ventas.reduce((acc, val) => acc + val, 0);
+    return total;
+  },
 };
 
 //console.log(concesionaria.autos);
@@ -49,3 +54,4 @@ console.log(concesionaria.venderAuto("JJK116"));
 console.log(concesionaria.listaDeVentas());
 console.log(concesionaria.venderAuto("APL123"));
 console.log(concesionaria.listaDeVentas());
+console.log(concesionaria.totalDeVentas());
