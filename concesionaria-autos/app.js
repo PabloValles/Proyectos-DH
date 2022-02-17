@@ -46,12 +46,38 @@ const concesionaria = {
     let total = ventas.reduce((acc, val) => acc + val, 0);
     return total;
   },
+
+  puedeComprar(auto, persona) {
+    let autoPersona = this.buscarAuto(auto);
+    let segundaCondicion =
+      persona.capacidadDePagoEnCuotas >=
+      (autoPersona.precio / autoPersona.cuotas).toFixed(2);
+
+    return persona.capacidadDePagoTotal >= autoPersona.precio &&
+      segundaCondicion
+      ? true
+      : false;
+  },
 };
 
-//console.log(concesionaria.autos);
-console.log(concesionaria.listaDeVentas());
-console.log(concesionaria.venderAuto("JJK116"));
-console.log(concesionaria.listaDeVentas());
-console.log(concesionaria.venderAuto("APL123"));
-console.log(concesionaria.listaDeVentas());
-console.log(concesionaria.totalDeVentas());
+/**
+ * Una es el costo total:
+ * si el total de un auto excede lo que la persona considera caro, no va a comprar el auto.
+ * Otra condición es su capacidad de pago en cuotas:
+ * si la capacidad de pago en cuotas supera al costo de la cuota, va a poder pagarlo. Si ambas condiciones se cumplen, se realiza la compra.
+ */
+
+let persona = {
+  nombre: "Juan",
+  capacidadDePagoEnCuotas: 20000,
+  capacidadDePagoTotal: 100000,
+};
+
+console.log(concesionaria.puedeComprar("APL123", persona));
+console.log(concesionaria.puedeComprar("JJK116", persona));
+
+/* ================================================================= */
+/**
+ *  Duda!: al metodo puedeComprar -> se le pasan 2 parámetros un auto y una persona
+ * Nose a q se refiere el parametro auto, yo lo hice, como que le pasa la patente, para reutilizar la función buscar auto, y luego aplicar la lógica del ejercicio en caso que pueda comprarlo o no
+ */
