@@ -32,9 +32,20 @@ const concesionaria = {
     let autosParaVender = this.autosParaLaVenta();
     return autosParaVender.filter((auto) => auto.km <= 100);
   },
+  listaDeVentas() {
+    let lista = [];
+
+    this.autos.map((auto) => {
+      auto.vendido ? lista.push(auto.precio) : "";
+    });
+
+    return lista;
+  },
 };
 
-console.log(concesionaria.buscarAuto("APL123"));
+//console.log(concesionaria.autos);
+console.log(concesionaria.listaDeVentas());
+console.log(concesionaria.venderAuto("JJK116"));
+console.log(concesionaria.listaDeVentas());
 console.log(concesionaria.venderAuto("APL123"));
-console.log(concesionaria.autos);
-console.log(concesionaria.autosParaLaVenta());
+console.log(concesionaria.listaDeVentas());
